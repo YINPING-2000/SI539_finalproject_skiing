@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping's Skiing Diary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+  <div><a class="skip" href="#main">Skip to Main Content</a></div>
+  <nav>
+    <div class="logo">Ping's Skiing Diary</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="skiing.html">Skiing</a></li>
+      <li><a href="aboutskiing.html">About Skiing</a></li>
+    </ul>
+  </nav>
+
+<main id="main">
+  <header class="hero-text">
+    <h1>Ping's Skiing Diary</h1>
+    <p class="date-range">From 2023.12.25 to 2024.02.27</p>
+  </header>
+
+  <section class="gallery-grid">
+      <a href="aboutskiing.html#where" class="card">
+        <img src="images/where.jpg" alt="Ski resort view">
+        <div class="card-content">
+          <h3>Where?</h3>
+          <p>I went to Tonghua in Jilin Province, China, and stayed there for three months.</p>
+        </div>
+      </a>
+
+      <a href="skiing.html#collection" class="card">
+        <img src="images/collection.jpg" alt="Ski passes collection">
+        <div class="card-content">
+            <h3>Skiing Collection</h3>
+            <p>My memories: vlogs, a ski trip to Beidahu, and skiing with my younger sister and brother.</p>
+        </div>
+    </a>
+
+    <a href="aboutskiing.html#equipment" class="card">
+        <img src="images/equipment.jpg" alt="Ski gear">
+        <div class="card-content">
+            <h3>My Ski Gear</h3>
+            <p>My skiing equipment: clothes, skis, poles, boots, and more. </p>
+        </div>
+    </a>
+
+    <a href="aboutskiing.html#study" class="card">
+        <img src="images/study.jpg" alt="Learning to ski">
+        <div class="card-content">
+            <h3>How I Learned to Ski</h3>
+            <p>I learned from ski tutorials on Bilibili, from coach, and from reflecting on my own practice.</p>
+        </div>
+    </a>
+
+    <a href="aboutskiing.html#food" class="card">
+        <img src="images/food.jpg" alt="Delicious food">
+        <div class="card-content">
+            <h3>What We Ate</h3>
+            <p>At home, we ate hotpot!! Outside, we eat in various restaurants, such as barbecue, malatang, and Northeastern cuisine.</p>
+        </div>
+    </a>
+
+    <a href="aboutskiing.html#family" class="card">
+        <img src="images/family.jpg" alt="Family photo">
+        <div class="card-content">
+            <h3>With my younger sister and brother</h3>
+            <p>During their school’s winter break, I took my younger sister and brother to Tonghua and spent time skiing and playing with them.</p></p>
+        </div>
+    </a>
+  </section>
+
+  <section class="highlight-section">
+      <h2>Ping's Highlight</h2>
+      <div class="video-container">
+        <a href="https://www.douyin.com/video/7341066590089170214" target="_blank" class="video-link">
+          <img src="images/highlight.jpg" alt="Highlight moment">
+        </a>
+      </div>
+  </section>
+
+  <section class="reflection">
+      <h2>Ping's Reflection</h2>
+      <p>Skiing has taught me patience, courage, and the joy of being fully present in nature...</p>
+  </section>
+
+  <section class="visitor-section">
+      <div class="visitor-card">
+        <p>If you’ve browsed this page, please click this button to let me know you were here.</p>
+        <button type="button" id="check-in-btn">I've seen it!</button>
+        <p id="thank-you-msg" class="hidden">Thanks for watching! ❤️</p>
+      </div>
+  </section>
+</main>
+
+
+  <footer class="site-footer">
+    <p>Ping's Skiing Experience During Gap Year •
+    <a href="https://ai.feishu.cn/docx/NrYGdeAs7o4QggxHaoScT35XnD9?from=from_copylink">Ping's Life Experience Series</a>
+    </p>
+  </footer>
+</body>
+
+<script>
+    const btn = document.getElementById('check-in-btn');
+    const msg = document.getElementById('thank-you-msg');
+
+    btn.addEventListener('click', function() {
+        // 改变按钮颜色表示已点击
+        btn.style.backgroundColor = '#34a853'; // Google Green
+        btn.textContent = 'Checked';
+        // 显示感谢语
+        msg.style.display = 'block';
+    });
+</script>
+</html>
