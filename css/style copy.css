@@ -8,8 +8,8 @@
 
 .skip:focus{
     top:25px;
-    background:#effaff;
-    border: 12px solid #8ac6ff;
+    background:#fff;
+    border: 2px solid #8ac6ff;
     padding: 0.5rem; 
 }
 
@@ -195,35 +195,6 @@ nav {
     color: #1a73e8 !important;
     font-weight: bold;
 }
-
-/* 修改输入框样式 */
-.input-group {
-    margin-bottom: 15px;
-}
-
-#visitor-name {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    width: 60%;
-    font-family: 'Google Sans', sans-serif;
-}
-
-/* 成功后的反馈区域 */
-#feedback-msg {
-    margin-top: 15px;
-    color: #1a73e8;
-    font-weight: bold;
-}
-
-/* 确保按钮和输入框在手机上也对齐 */
-.visitor-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
 
 /* --- 页脚 (Footer) --- */
 footer {
@@ -599,63 +570,32 @@ footer p {
     color: #202124;
 }
 
-/* --- 修复竖屏视频的显示问题 --- */
-.video-cover-fix {
+.vlog-media video {
     width: 100%;
-    /* 强制设定为 16:9 的比例，和 Ep.05 保持一致 */
-    aspect-ratio: 16 / 9; 
-    /* 关键属性：cover。让视频像图片一样填满容器，
-       多余的上下部分会被裁掉，但不会变形 */
-    object-fit: cover; 
-    /* 保持圆角 */
-    border-radius: 12px;
-    /* 修正视频在某些浏览器可能出现的黑边 */
-    background: #000; 
+    height: 100%; /* 或者 height: auto; */
+    object-fit: cover; /* 如果视频比例和容器不同，裁掉多余部分，保持填满 */
+    border-radius: 12px; /* 保持圆角风格 */
+    display: block;
 }
 /* --- PART 2: Beidahu Trip (Horizontal Scroll) --- */
 .trip-section {
     padding: 40px 0 80px;
     background-color: #fff;
-    /* overflow: hidden; */
+    overflow: hidden; /* 隐藏页面横向滚动条 */
 }
 .trip-gallery {
     display: flex;
     gap: 20px;
     overflow-x: auto; /* 允许容器横向滚动 */
-    padding: 20px 5% 30px;
-    /* scroll-snap-type: x mandatory; */
+    padding: 20px 5%;
+    scroll-snap-type: x mandatory; /* 滚动吸附效果 */
     /* 隐藏滚动条 */
-    /* scrollbar-width:thin; 
-    -ms-overflow-style: #dadce0 transparent; */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
 }
-
-/* ---Chrome/ Safari/ Edge的滚动条美化--- */
-
-/* 1. 设置滚动条尺寸*/
 .trip-gallery::-webkit-scrollbar {
-    height:8px; /* 横向滚动条高度 */
-    display:block; 
+    display: none;
 }
-/* 2.设置滚动条轨道（背景）*/
-.trip-gallery::-webkit-scrollbar-track {
-    background: transparent; 
-    margin:0 5%; /* 两边留白 */
-}
-
-/* 3.设置滚动条滑块（可拖动部分）*/
-.trip-gallery::-webkit-scrollbar-thumb {
-    background-color: #dadce0; 
-    border-radius: 4px;
-}
-/* 4.鼠标放上去变深一点 */
-.trip-gallery::-webkit-scrollbar-thumb:hover {
-    background-color: #95bff3; 
-}
-
-.trip-gallery::-webkit-scrollbar {
-    display:none;
-}
-
 .trip-card {
     flex: 0 0 300px; /* 固定宽度卡片 */
     height: 400px;
@@ -742,70 +682,6 @@ footer p {
 
 
 /* =========================================
-   Lightbox (图片放大灯箱)
-   ========================================= */
-.lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9); /* 深黑背景，90%不透明 */
-    display: none; /* 默认隐藏 */
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* 保证在最上层 */
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-/* 灯箱激活时的状态 */
-.lightbox.open {
-    display: flex;
-    opacity: 1;
-}
-
-/* 大图样式 */
-.lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-}
-
-.lightbox.open img {
-    transform: scale(1);
-}
-
-/* 关闭按钮 */
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    user-select: none;
-    transition: color 0.3s;
-}
-
-.lightbox-close:hover {
-    color: #fbbc04; /* Google Yellow */
-}
-
-/* 给原本的图片加一个小手，提示可以点击 */
-.timeline-img img {
-    cursor: zoom-in;
-    transition: transform 0.2s;
-}
-.timeline-img img:hover {
-    transform: scale(1.05); /* 鼠标放上去稍微大一点点 */
-}
-
-/* =========================================
    Desktop Responsiveness (min-width: 800px)
    ========================================= */
 @media (min-width: 800px) {
@@ -858,10 +734,4 @@ footer p {
     .timeline-item.right::before {
         left: -9px; /* 修正右侧圆点位置 */
     }
-    /* 电脑版专用的大尺寸 */
-    .timeline-img {
-        width: 180px;
-        height: 180px;
-    }
 }
-

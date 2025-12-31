@@ -91,11 +91,21 @@
   </section>
 
   <section class="visitor-section">
-      <div class="visitor-card">
-        <p>If you’ve browsed this page, please click this button to let me know you were here.</p>
-        <button type="button" id="check-in-btn">I've seen it!</button>
-        <p id="thank-you-msg" class="hidden">Thanks for watching! ❤️</p>
-      </div>
+      <form id="visit-form" class="visitor-card">
+        <p>If you’ve browsed this page, please leave your name and check in!</p>
+        <div class="input-group">
+          <label for="visitor-name">Your Name:</label>
+          <input type="text" id="visitor-name" name="name" placeholder="e.g. Ping" required>
+        </div>
+
+        <input type="hidden" id="visit-time" name="timestamp">
+
+        <button type="submit" id="check-in-btn">Check In</button>
+        <div id="feedback-msg" class="hidden">
+          <p>Thanks for watching! ❤️</p>
+          <p>Total Visitors: <span id="visitor-count">Loading...</span></p>
+        </div>
+      </form>
   </section>
 </main>
 
@@ -107,16 +117,5 @@
   </footer>
 </body>
 
-<script>
-    const btn = document.getElementById('check-in-btn');
-    const msg = document.getElementById('thank-you-msg');
-
-    btn.addEventListener('click', function() {
-        // 改变按钮颜色表示已点击
-        btn.style.backgroundColor = '#34a853'; 
-        btn.textContent = 'Checked';
-        // 感谢语
-        msg.style.display = 'block';
-    });
-</script>
+<script src="js/script.js"></script>
 </html>
