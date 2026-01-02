@@ -147,6 +147,44 @@ nav {
     line-height: 1.6;
 }
 
+/* =========================================
+   Reflection Section Styling (散文诗样式)
+   ========================================= */
+
+/* 容器：限制宽度，让阅读体验像读信一样 */
+.reflection-content {
+    max-width: 800px;
+    margin: 0 auto; /* 居中 */
+    text-align: left; /* 英文长文通常左对齐更好读，或者你可以改成 justify */
+    padding: 0 20px;
+}
+
+/* 段落样式 */
+.reflection-content p {
+    font-family: 'Google Sans', sans-serif; /* 保持和你网站一致的字体 */
+    font-size: 1.1rem;      /* 稍微大一点的字号 */
+    line-height: 1.8;       /* 较大的行高，增加呼吸感 */
+    color: #444;            /* 深灰字体，比纯黑柔和 */
+    margin-bottom: 2rem;    /* 段落之间空开距离 */
+}
+
+/* 开头的引言样式 */
+.reflection-intro {
+    text-align: center;     /* 引言居中 */
+    color: #888 !important; /* 浅灰色 */
+    font-style: italic;
+    margin-bottom: 3rem !important; /* 和正文拉开距离 */
+    font-family: 'Playfair Display', serif; /* 使用衬线体增加文艺感 */
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .reflection-content p {
+        font-size: 1rem;
+        text-align: left; /* 手机上左对齐 */
+    }
+}
+
 /* --- 访客打卡区域 --- */
 .visitor-section {
     padding: 0 5% 40px;
@@ -436,7 +474,7 @@ footer p {
     gap: 20px;
     overflow-x: auto; /* 允许横向滚动 */
     padding: 20px 5% 30px;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
 }
 .carousel-track::-webkit-scrollbar {
     display: none; /* Chrome, Safari */
