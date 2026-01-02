@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 /* =========================================
        Trip Gallery Auto-Scroll (Infinite Loop)
        ========================================= */
@@ -124,6 +125,51 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 就瞬间跳回起点 (0)，因为起点的内容和中间的内容是一模一样的
                 if (gallery.scrollLeft >= gallery.scrollWidth / 2) {
                     gallery.scrollLeft = 0;
+                }
+            }
+            // 请求下一帧动画
+            requestAnimationFrame(autoScroll);
+        }
+
+        // 启动动画
+        autoScroll();
+    }
+
+    
+});
+
+/* =========================================
+       Moments Gallery Auto-Scroll (Infinite Loop)
+       ========================================= */
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.carousel-track');
+
+    if (carousel) {
+        // 1. 克隆内容：把所有卡片复制一份加到后面，实现无缝循环
+        carousel.innerHTML += carousel.innerHTML;
+        let scrollSpeed = 1; // 滚动速度 (数字越大越快)
+        let isHovered = false;
+
+        // 2. 监听鼠标：鼠标放上去暂停，移开继续
+        carousel.addEventListener('mouseenter', () => {
+            isHovered = true;
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+            isHovered = false;
+        });
+
+        // 3. 动画循环函数
+        function autoScroll() {
+            // 只有当鼠标没放上去时，才自动滚
+            if (!isHovered) {
+                carousel.scrollLeft += scrollSpeed;
+
+                // 4. 无缝重置逻辑
+                // 如果滚动的距离超过了内容的一半（因为我们复制了一份，所以是一半）
+                // 就瞬间跳回起点 (0)，因为起点的内容和中间的内容是一模一样的
+                if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+                    carousel.scrollLeft = 0;
                 }
             }
             // 请求下一帧动画

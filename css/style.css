@@ -424,22 +424,19 @@ footer p {
 /* 布局 5: 横向滚动 (Little Moments) */
 .layout-carousel {
     padding: 40px 0 80px; /* 两边不留白，让图片通栏 */
-    overflow: hidden;
+    /* overflow: hidden; */
 }
-.carousel-wrapper {
+/* .carousel-wrapper {
     position: relative;
     display: flex;
     align-items: center;
-}
+} */
 .carousel-track {
     display: flex;
     gap: 20px;
     overflow-x: auto; /* 允许横向滚动 */
-    padding: 20px 5%;
+    padding: 20px 5% 30px;
     scroll-behavior: smooth;
-    /* 隐藏滚动条 (兼容写法) */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
 }
 .carousel-track::-webkit-scrollbar {
     display: none; /* Chrome, Safari */
@@ -455,9 +452,6 @@ footer p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-.scroll-btn {
-    display: none; /* 手机版隐藏箭头，直接划 */
 }
 
 /* =========================================
