@@ -181,7 +181,7 @@ nav {
 @media (max-width: 768px) {
     .reflection-content p {
         font-size: 1rem;
-        text-align: left; /* 手机上左对齐 */
+        text-align: center;
     }
 }
 
